@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --section-bg: #F7F9FC;
+  --foreground: #172033;
+  --primary: #0B1F3A;
+  --primary-hover: #0d2647;
+  --accent: #2563EB;
+  --accent-hover: #1d4ed8;
+  --accent-light: #EAF2FF;
+  --secondary: #64748B;
+  --muted: #64748B;
+  --border: #E5EAF0;
+  --success: #16A34A;
+  --card-bg: #FFFFFF;
+  --card-border: #E5EAF0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-section-bg: var(--section-bg);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--section-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Utility classes */
+.btn-primary {
+  background: #60a5fa;
+  color: #ffffff;
+  border-radius: 0;
+  padding: 12px 22px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #2563EB;
+  transition: left 0.35s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 22px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 32px rgba(11, 31, 58, 0.08);
+  transform: translateY(-2px);
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 2s infinite ease-out;
+}
